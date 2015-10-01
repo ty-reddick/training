@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Declaration</title>
+	
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<script type="text/javascript" src="assert.js"></script>
+
+	<script type="text/javascript">	
+
+		var start = function(){
+			function isNimble(){
+				return true;
+			};
+
+			var canFly = function(){
+				return true;
+			};
+
+			assert(typeof window.isNimble === "function", "isNimble() defined");
+			assert(isNimble.name === "isNimble", "isNimble() has a name");
+
+			assert(typeof window.canFly === "function", "canFly() defined");
+			assert(canFly.name === "", "canFly() has a no name");
+
+			function outer(){
+				var a = 1;
+				assert(typeof a === "number", "a is in scope of outer");
+				function inner(){};
+				assert(typeof inner === "function", "inner() is in scope of outer");
+				var b = 2;
+				if (a == 1) {
+					var c = 3;
+					assert(typeof c === "number", "c is in scope of outer");
+				}
+			};
+			outer();
+			assert(typeof outer === "function", "outer() is in scope");
+			assert(typeof inner === "function", "inner() is in scope");
+			assert(typeof a === "number", "a is in scope");
+			assert(typeof b === "number", "b is in scope");
+			assert(typeof c === "number", "c is in scope");
+		}; 
+
+		
+
+		
+
+		window.onload = start;
+
+	</script>
+	<style type="text/css">
+		#results li.pass {
+			color: green;
+		}
+		#results li.fail {
+			color: red;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		<h1 class="page-header text-center">Secrets Of The Javascript Ninja Chapter 3</h1>
+		<ol id="results" class="jumbotron"></ol>
+	</div>
+
+</body>
+</html>

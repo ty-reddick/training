@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Invocation Example</title>
+	
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<script type="text/javascript" src="assert.js"></script>
+
+	<script type="text/javascript">
+
+		function start () {
+		
+			function creep () {
+				return this;
+			}
+			assert(creep() === window, "Creeping in the window (method invocation)");
+
+			var sneak = creep;
+			assert(sneak() === window, "Sneaking in the window (method invocation)");
+
+			var ninja1 = {
+				skulk: creep
+			};
+			assert(ninja1.skulk() === ninja1, "The first ninja is skulking (method invocation)");
+
+			var ninja2 = {
+				skulk: creep
+			};
+			assert(ninja2.skulk() === ninja2, "The second ninja is skulking (method invocation)");
+
+			function Ninja () {
+				this.move = function(){ return this; };
+			}
+
+			var ninja3 = new Ninja();
+			var ninja4 = new Ninja();
+
+			assert(ninja3.move() === ninja3, "The third ninja is moving (constructor invocation)");
+			assert(ninja4.move() === ninja4, "The forth ninja is moving (constructor invocation)");
+
+		}
+
+		window.onload = start;
+	</script>
+	<style type="text/css">
+		#results li.pass {
+			color: green;
+		}
+		#results li.fail {
+			color: red;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		<h1 class="page-header text-center">Secrets Of The Javascript Ninja Chapter 3</h1>
+		<ol id="results" class="jumbotron"></ol>
+	</div>
+
+</body>
+</html>

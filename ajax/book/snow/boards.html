@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Boards R Us</title>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+	<script type="text/javascript" src="js/ajax.js"></script>
+</head>
+<body class="container">
+
+	<h1 class="page-header text-center">Boards R Us :: Custom Reports</h1>
+	<div id="boards">
+		<table class="table">
+			<tr>
+				<th>Snow Boards Sold</th>
+				<td>
+					<span id="boards-sold">1012</span>
+				</td>
+			</tr>
+			<tr>
+				<th>What I Sell'em For</th>
+				<td>
+					<span id="price">249.95</span>
+				</td>
+			</tr>
+			<tr>
+				<th>What It Costs Me</th>
+				<td>
+					<span class="cost">84.22</span>
+				</td>
+			</tr>
+		</table>
+		<h2>Cash For The Slopes: <span id="cash">167718.76</span></h2>
+		<form method="GET" action="getUpdateBoardSales.php">
+			<input type="submit" onclick="ceateRequest()" value="Show Me The Money">
+		</form>
+	</div>
+
+</body>
+</html>

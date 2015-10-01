@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Callback Example</title>
+	
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<script type="text/javascript" src="assert.js"></script>
+
+	<script type="text/javascript">
+		function useless(callback) {
+			return callback();
+		};
+
+		var text = "Domo arigato!";
+
+		window.onload = function () {
+			assert(true, "The test is running");
+			assert(useless(function() {
+				return text;
+			}) === text, "The useless function works!");
+		};
+	</script>
+	<style type="text/css">
+		#results li.pass {
+			color: green;
+		}
+		#results li.fail {
+			color: red;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		<h1 class="page-header text-center">Secrets Of The Javascript Ninja Chapter 3</h1>
+		<ol id="results" class="jumbotron"></ol>
+	</div>
+
+</body>
+</html>

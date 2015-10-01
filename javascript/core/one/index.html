@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Weird Parts</title>
+	<script type="text/javascript">
+		window.onload = function() {
+			/*
+			function b () {
+				console.log(myVar); // This will output 1
+			}
+			*/
+			function a () {
+				function b () {
+					console.log(myVar); // This will output 2
+				}
+				var myVar = 2;
+				b();
+			}
+
+			var myVar = 1;
+			a();
+			// b();
+		};
+	</script>
+</head>
+<body>
+
+
+</body>
+</html>

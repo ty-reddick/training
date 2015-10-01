@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>forms</title>
+</head>
+<body>
+<label>Url:</label>
+<input type="url"><br>
+<label>Date:</label>
+<input type="date"><br>
+<label>Time:</label>
+<input type="time"><br>
+<label>Date and Time:</label>
+<input type="datetime"><br>
+<label>Month:</label>
+<input type="month"><br>
+<label>Week:</label>
+<input type="week"><br>
+<label>Range:</label>
+<input type="range"><br>
+<label>Telephone:</label>
+<input type="tel"><br>
+<label>Color Picker:</label>
+<input type="color"><br>
+
+<label>Choose a surname:</label>
+<input id="form-person-title" type="text" list="mylist">
+<datalist id="mylist">
+	<option label="Mr" value="Mr">
+	<option label="Ms" value="Ms">
+	<option label="Prof" value="Mad Professor">
+</datalist>
+
+<br>
+
+<label for="source">How did you hear about us?</label>
+<datalist id="sources">
+	<select name="source">
+		<option>Please Choose...</option>
+		<option value="Television">Television</option>
+		<option value="Radio">Radio</option>
+		<option value="Newspaper">Newspaper</option>
+		<option>Other</option>
+	</select>
+	If other, please specify:
+</datalist>
+<input id="source" name="souce" list="sources">
+<br>
+
+<label>Pogress Meter</label>
+<progress value="5" max="20"></progress>
+	
+</body>
+</html>

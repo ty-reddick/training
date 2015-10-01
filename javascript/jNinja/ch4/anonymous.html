@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>4.1 Anonymous Example</title>
+	
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<script type="text/javascript" src="assert.js"></script>
+
+	<script type="text/javascript">
+		window.onload = function() {
+
+			var ninja = {
+				shout: function() {
+					assert(true, 'Ninja');
+				}
+			};
+
+			ninja.shout();
+
+			assert(true, 'Power!');
+
+			setTimeout(function() {
+				assert(true, 'Forever!');
+			}, 500);
+			
+		};
+	</script>
+	<style type="text/css">
+		#results li.pass {
+			color: green;
+		}
+		#results li.fail {
+			color: red;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		<h1 class="page-header text-center">Secrets Of The Javascript Ninja Chapter 4</h1>
+		<ol id="results" class="jumbotron"></ol>
+	</div>
+
+</body>
+</html>

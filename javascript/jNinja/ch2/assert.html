@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Assert Example</title>
+
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+	<script type="text/javascript">
+		function assert (value, desc) {
+			var li = document.createElement("li");
+			li.className = value ? "pass" : "fail";
+			li.appendChild(document.createTextNode(desc));
+			document.getElementById('results').appendChild(li);
+		}
+
+		window.onload = function () {
+			assert(true, "The test is running");
+			assert(false, "The test failed to run")
+		};
+	</script>
+	<style type="text/css">
+		#results li.pass {
+			color: green;
+		}
+		#results li.fail {
+			color: red;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		<h1 class="page-header text-center">Secrets Of The Javascript Ninja Chapter 2</h1>
+		<ol id="results" class="jumbotron"></ol>
+	</div>
+
+</body>
+</html>

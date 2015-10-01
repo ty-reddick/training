@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Assert Group Example</title>
+
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+	<script type="text/javascript">
+		(function() {
+			var results;
+			this.assert = function assert(value, desc) {
+				var li = document.createElement("li");
+				li.className = value ? "pass" : "fail";
+				li.appendChild(document.createTextNode(desc));
+				results.appendChild(li);
+				if (!value) {
+					li.parentNode.parentNode.className = "fail";
+				}
+				return li;
+			};
+			this.test = function test(name, fn) {
+				results = document.getElementById('results');
+				results = assert(true, name).appendChild(document.createElement("ul"));
+				fn();
+			};
+		})();
+
+		window.onload = function () {
+			test("A Test", function() {
+				assert(true, 'First assertion complete');
+				assert(true, 'Second assertion complete');
+				assert(true, 'Third assertion complete');
+			});
+			test("Another Test", function() {
+				assert(true, 'First assertion complete');
+				assert(false, 'Second assertion failed');
+				assert(true, 'Third assertion complete');
+			});
+			test("A Third Test", function() {
+				assert(null, 'Fail');
+				assert(5, 'Pass');
+			});
+		};
+	</script>
+	<style type="text/css">
+		#results li.pass {
+			color: green;
+		}
+		#results li.fail {
+			color: red;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		<h1 class="page-header text-center">Secrets Of The Javascript Ninja Chapter 2</h1>
+		<ol id="results" class="jumbotron"></ol>
+	</div>
+
+</body>
+</html>

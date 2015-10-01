@@ -1,0 +1,21 @@
+header, nav, footer, article {
+	display: block;
+}
+nav {
+	float: left;
+	width: 20%;
+	background-color: black;
+	color: white;
+}
+a {
+	color: white;
+}
+article {
+	float: right;
+	width: 79%;
+	background-color: blue;
+	color: white;
+}
+footer {
+	clear: both;
+}
