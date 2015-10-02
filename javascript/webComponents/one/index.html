@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Web Components</title>
+
+	<script type="text/javascript">
+
+	(function () {
+		var SpecialInputProto = Object.create(HTMLElement.prototype);
+
+		SpecialInputProto.createdCallback = function () {
+			var value = this.hasAttribute('value') ?
+						this.getAttribute('value') : '';
+			var template = document.querySelector('template').content;
+			template.querySelector('input').value = value;
+
+			var shadowRoot = this.createShadowRoot();
+			shadowRoot.appendChild(template.cloneNode(true));
+		};
+		document.registerElement('special-input', {
+			prototype: SpecialInputProto
+		});
+	})();
+
+	</script>
+
+</head>
+<body>
+
+	<special-input value="Name"></special-input>
+
+	<template>
+		<input type="text">
+	</template>
+
+</body>
+</html>
